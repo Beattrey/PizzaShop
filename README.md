@@ -1,4 +1,6 @@
+PizzaShop with:
 sinatra-bootstrap-clean
+
 =======================
 
-Cleaned version of https://github.com/bootstrap-ruby/sinatra-bootstrap
+Uses https://github.com/bootstrap-ruby/sinatra-bootstrap
