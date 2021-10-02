@@ -10,7 +10,13 @@ class Product < ActiveRecord::Base
 end
 
 get '/' do
-  erb "Hello!"
+  @product = Product.all
+  erb :index
+end
+
+get '/cart/:id' do
+  @pizza = Product.find(params[:id])
+  erb :cart
 end
 
 get '/about' do
