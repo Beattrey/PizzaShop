@@ -1,10 +1,9 @@
-#encoding: utf-8
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
-set :database, { adapter: "sqlite3", database: "pizzashop.db" }
+set :database, { adapter: 'sqlite3', database: 'pizzashop.db' }
 
 class Product < ActiveRecord::Base
 end
@@ -14,9 +13,9 @@ get '/' do
   erb :index
 end
 
-get '/cart/:id' do
+get '/product/:id' do
   @pizza = Product.find(params[:id])
-  erb :cart
+  erb :product
 end
 
 get '/about' do
@@ -25,4 +24,8 @@ end
 
 get '/contacts' do
   erb :contacts
+end
+
+post '/cart' do
+  erb 'hello'
 end

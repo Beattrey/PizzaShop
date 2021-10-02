@@ -7,7 +7,7 @@
     <img src="<%= row.path_to_image %>" class="img-thumbnail">
     <br>
     <br>
-    <a href="/cart/<%= row.id %>"><p><%= row.title %></p></a>
+    <a href="/product/<%= row.id %>"><p><%= row.title %></p></a>
     <p><%= row.price %> руб.</p>
     <p><%= row.description %></p>
     <div>
@@ -19,6 +19,13 @@
 <% end %>
 </div>
 
+
+<script>
+  $(function () {
+      update_orders_input();
+      update_orders_button()
+  });
+</script>
 
 
 
