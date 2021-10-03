@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -6,6 +7,9 @@ require 'sinatra/activerecord'
 set :database, { adapter: 'sqlite3', database: 'pizzashop.db' }
 
 class Product < ActiveRecord::Base
+end
+
+class Order < ActiveRecord::Base
 end
 
 get '/' do
@@ -26,17 +30,33 @@ get '/contacts' do
   erb :contacts
 end
 
+get '/cart' do
+  erb :cart
+end
+
 post '/cart' do
-  orders_input = params[:orders]
-  @items = parse_orders_input(orders_input)
+  @o = Order.new
+  @orders_input = params[:orders]
+  @items = parse_orders_input(@orders_input)
 
   @items.each do |item|
     item[0] = Product.find(item[0])
   end
-
   erb :cart
 end
 
+get '/order' do
+  @o = Order.all
+  erb :order
+end
+
+post '/order' do
+  @o = Order.create params[:order]
+  sleep(5)
+  erb :order
+end
+
+# разделяем полученную строку с localstorage
 def parse_orders_input(orders_input)
   s1 = orders_input.split(/,/)
 
@@ -52,8 +72,6 @@ def parse_orders_input(orders_input)
     arr2 = [id, cnt]
     arr.push arr2
   end
-
   arr
-
 end
 
