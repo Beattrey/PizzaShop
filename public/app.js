@@ -15,7 +15,7 @@ function update_orders_input() {
 
 function update_orders_button()
 {
-    let text = 'Cart (' + cart_get_number_of_items() + ')';
+    let text = 'Корзина (' + cart_get_number_of_items() + ')';
     $('#orders_button').val(text);
 }
 

@@ -1,26 +1,26 @@
 class AddProducts < ActiveRecord::Migration[6.1]
   def change
-    Product.create :title => 'Hawaiian',
-                   :description => 'This is Hawaiian pizza',
-                   :price => 350,
+    Product.create :title => 'Гавайская',
+                   :description => 'Это та самая Гавайская пиццуля',
+                   :price => 90,
                    :size => 30,
                    :is_spicy => false,
                    :is_veg => false,
                    :is_best_offer => true,
                    :path_to_image => '/images/hawaiian.jpg'
 
-    Product.create :title => 'Pepperoni',
-                   :description => 'This is pepperoni pizza',
-                   :price => 450,
+    Product.create :title => 'Пеперони',
+                   :description => 'Непревзойденная Пеперони, помнишь кто из черепашек любил ее?',
+                   :price => 115,
                    :size => 30,
                    :is_spicy => false,
                    :is_veg => false,
                    :is_best_offer => false,
                    :path_to_image => '/images/pepperoni.jpg'
 
-    Product.create :title => 'Vegetarian',
-                   :description => 'Amazing Vegetarian pizza',
-                   :price => 400,
+    Product.create :title => 'Вегетарианская',
+                   :description => 'Чудесная Вегетарианская пицца',
+                   :price => 110,
                    :size => 30,
                    :is_spicy => false,
                    :is_veg => true,
