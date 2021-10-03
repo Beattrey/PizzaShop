@@ -1,7 +1,25 @@
 <h2>Заказы</h2>
 
-<%# @o.each do |o| %>
-<%#= o.name %>
-<%#= o.phone %>
-<%#= o.address %>
-<%# end %>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Имя</th>
+    <th>Номер телефона</th>
+    <th>Адрес доставки</th>
+    <th>Наименование товара</th>
+    <th>Дата заказа</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @o.each do |o| %>
+  <tr>
+    <td><%= o.name %></td>
+    <td><%= o.phone %></td>
+    <td><%= o.address %></td>
+    <td><%= o.orders_input %></td>
+    <td><%= o.created_at %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

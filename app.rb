@@ -50,10 +50,13 @@ get '/order' do
   erb :order
 end
 
+get '/success' do
+  erb :success
+end
+
 post '/order' do
   @o = Order.create params[:order]
-  sleep(5)
-  erb :order
+  erb :success
 end
 
 # разделяем полученную строку с localstorage

@@ -50,17 +50,8 @@
     <input name="order[address]" type="text" class="form-control" placeholder="Введите адрес доставки" id="address" value="<%= @o.address %>">
   </div>
 
-  <button type="submit" class="btn btn-success" onclick="window.localStorage.clear();" data-toggle="modal" data-target=".bs-example-modal-lg">Оформить заказ</button>
+  <button type="submit" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Оформить заказ</button>
 </form>
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <br>
-      <br>
-      <h3>Ваш заказ принят в обработку, ожидайте, с вами свяжется менеджер</h3>
-      <br>
-      <br>
-    </div>
-  </div>
-</div>
+
+
