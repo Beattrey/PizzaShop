@@ -10,6 +10,9 @@ class Product < ActiveRecord::Base
 end
 
 class Order < ActiveRecord::Base
+  validates :name, presence: true
+  validates :phone, presence: true
+  validates :address, presence: true
 end
 
 get '/' do
@@ -55,8 +58,13 @@ get '/success' do
 end
 
 post '/order' do
-  @o = Order.create params[:order]
-  erb :success
+  @o = Order.new params[:order]
+  if @o.save
+    erb "<h2>Заказ оформлен</h2>"
+  else
+    @error = @o.errors.full_messages.first
+    erb "Вернитесь назад и укажите информацию"
+  end
 end
 
 # разделяем полученную строку с localstorage
