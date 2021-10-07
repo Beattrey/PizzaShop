@@ -50,7 +50,8 @@
     <input name="order[address]" type="text" class="form-control" placeholder="Введите адрес доставки" id="address" value="<%= @o.address %>">
   </div>
 
-  <button type="submit" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Оформить заказ</button>
+  <button type="submit" class="btn btn-success">Оформить заказ</button>
+  <button class="btn btn-danger btn-lg" onclick="return cancel_order()">Очистить корзину</button>
 </form>
 
 

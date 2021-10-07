@@ -60,7 +60,7 @@ end
 post '/order' do
   @o = Order.new params[:order]
   if @o.save
-    erb "<h2>Заказ оформлен</h2>"
+    erb :success
   else
     @error = @o.errors.full_messages.first
     erb "Вернитесь назад и укажите информацию"
