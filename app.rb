@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -42,6 +43,8 @@ post '/cart' do
   @orders_input = params[:orders]
   @items = parse_orders_input(@orders_input)
 
+  return erb :cart_is_empty if @orders_input == '0'
+
   @items.each do |item|
     item[0] = Product.find(item[0])
   end
@@ -63,7 +66,7 @@ post '/order' do
     erb :success
   else
     @error = @o.errors.full_messages.first
-    erb "Вернитесь назад и укажите информацию"
+    erb 'Вернитесь назад и укажите информацию'
   end
 end
 
@@ -85,4 +88,3 @@ def parse_orders_input(orders_input)
   end
   arr
 end
-
