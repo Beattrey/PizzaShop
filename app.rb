@@ -52,7 +52,7 @@ post '/cart' do
 end
 
 get '/order' do
-  @o = Order.all
+  @o = Order.order "created_at DESC"
   erb :order
 end
 
